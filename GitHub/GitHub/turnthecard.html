@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gira la Carta</title>
+</head>
+<body>
+ <img src="https://crystal-cdn4.crystalcommerce.com/photos/6285563/ygo-cardback.png" onclick="gira()"  width="300" />
+ <script>
+    let carta=document.querySelector("img")
+    function gira () {
+        if(carta.src.includes('back'))
+    carta.src="https://i.pinimg.com/originals/a3/9c/23/a39c239ac52c9b20f11c3860c26e44dc.png"
+    else
+    carta.src="https://crystal-cdn4.crystalcommerce.com/photos/6285563/ygo-cardback.png"
+     }
+
+    </script>
+</body>
+</html>
