@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    /*qua abbiamo inserito la larghezza e l'altezza*/
+        img {
+            width: 300px;
+            height: 425px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="counter">SCORE=</span><span id="counter" class="counter">0</span>
+    </div>
+  
+    <div id="tavoloDaGioco"></div>
+
+
+    <script>
+        //qua ci sono le immagini delle carte
+        carte = ["Yu-Gi-Oh!-front.png", "Yu-Gi-Oh!-front.png2.jpg", "Yu-Gi-Oh!-front.png3.jpg", "Yu-Gi-Oh!-front.png4.jpg", "Yu-Gi-Oh!-front.png5.jpg", "Yu-Gi-Oh!-front.png6.jpg", "Yu-Gi-Oh!-front.png7.jpg", "Yu-Gi-Oh!-front.png8.jpg", "https://www.pianetahobby.it/img/news/117691/(71)_big.jpg", "Yu-Gi-Oh!-front.png", "Yu-Gi-Oh!-front.png2.jpg", "Yu-Gi-Oh!-front.png3.jpg", "Yu-Gi-Oh!-front.png4.jpg", "Yu-Gi-Oh!-front.png5.jpg", "Yu-Gi-Oh!-front.png6.jpg", "Yu-Gi-Oh!-front.png7.jpg", "Yu-Gi-Oh!-front.png8.jpg", "https://www.pianetahobby.it/img/news/117691/(71)_big.jpg"]
+        let NcarteGirate = 0;
+        let primaCartaGirata = null
+        tavolo = document.querySelector('#tavoloDaGioco')
+
+        carte.forEach(element => {
+            tavolo.innerHTML += '<img id="' + element + '" src="Yu-Gi-Oh!-back.png" onclick="gira(this)" />'
+            console.log('<img id="' + element + '" src="Yu-Gi-Oh!-back.png" />')
+        });
+        //queste sono le variabili che abbiamo usato per il punteggio
+        var counter = document.getElementById("counter");
+        var count = 0;
+        //questa è la funzione per girare le carte
+        function gira(carta) {
+            NcarteGirate++
+            console.log(NcarteGirate)
+            carta.src = carta.id
+            if (NcarteGirate == 1)
+                primaCartaGirata = carta
+                 
+            else {
+                NcarteGirate = 0
+                if (carta.src == primaCartaGirata.src) {
+                    count++;
+                    counter.textContent = count;
+                //questa funzione serve per far rigirare le carte se sbagli
+                } else {
+                    setTimeout(function() {
+                        carta.src = "Yu-Gi-Oh!-back.png";
+                        primaCartaGirata.src = "Yu-Gi-Oh!-back.png";
+                    }, 1000);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
